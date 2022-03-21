@@ -47,12 +47,12 @@ if __name__ == '__main__':
         metadata["window_size"] = window_size
         metadata["device"] = device
 
-        out = ips.process(
-            raw_image=raw_image,
-            metadata=metadata,
-            wb_network=wb_network,
-            denoiser_network=denoiser
-        )
+        # out = ips.process(
+        #     raw_image=raw_image,
+        #     metadata=metadata,
+        #     wb_network=wb_network,
+        #     denoiser_network=denoiser
+        # )
         out_path = os.path.join("/"+base_dir, img_name.replace("png", "jpg"))
         print(out_path)
-        io.write_processed_as_jpg(out, out_path)
+        io.write_processed_as_jpg(raw_image, out_path)
