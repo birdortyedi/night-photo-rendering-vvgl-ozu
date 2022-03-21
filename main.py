@@ -53,6 +53,6 @@ if __name__ == '__main__':
             wb_network=wb_network,
             denoiser_network=denoiser
         )
-        out_path = os.path.join(base_dir, img_name.replace("png", "jpg"))
+        out_path = os.path.join("/"+base_dir, img_name.replace("png", "jpg"))
         print(out_path)
         io.write_processed_as_jpg(out, out_path)
