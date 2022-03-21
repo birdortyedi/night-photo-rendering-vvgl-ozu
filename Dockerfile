@@ -11,5 +11,3 @@ RUN python -m pip install --no-cache -r requirements.txt
 
 COPY . /night-photo-rendering-vvgl-ozu
 WORKDIR /night-photo-rendering-vvgl-ozu
-
-CMD ["./run.sh"]
