@@ -1,4 +1,5 @@
 import os
+import argparse
 import glog as log
 
 from utils import io
@@ -7,10 +8,16 @@ import ips
 
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=SyntaxWarning)
 
 
 if __name__ == '__main__':
-    base_dir = "data/"
+    parser = argparse.ArgumentParser(description='Night Photography Rendering Challenge - Team VVGL OzU')
+    parser.add_argument('-d', '--data_dir', type=str, default="data/", help="data directory")
+    parser.add_argument('-s', '--submission_name', type=str, default="vvgl-ozu", help='submission name')
+    args = parser.parse_args()
+
+    base_dir = args.data_dir
     expected_landscape_img_height = 866
     expected_landscape_img_width = 1300
     device = io.get_device()
@@ -25,7 +32,7 @@ if __name__ == '__main__':
     wb_model_path = os.path.join("weights", wb_model_name + ".pth")
     wb_network = mixed_wb.build_model(wb_model_path=wb_model_path, wb_settings=wb_settings, device=device)
 
-    for img_name in os.listdir(base_dir):
+    for img_name in os.listdir(args.data_dir):
         if ".png" not in img_name: continue
         log.info("Processing image {}".format(img_name))
 

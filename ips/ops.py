@@ -153,9 +153,9 @@ def white_balance_w_style(demosaic, net, wb_settings, multi_scale=True, post_pro
     size = demosaic.shape[:2]
 
     deepWB_T = dwb.deepWBnet()
-    deepWB_T.load_state_dict(torch.load('DeepWB/models/net_t.pth'))
+    deepWB_T.load_state_dict(torch.load('modeling/DeepWB/models/net_t.pth'))
     deepWB_S = dwb.deepWBnet()
-    deepWB_S.load_state_dict(torch.load('DeepWB/models/net_s.pth'))
+    deepWB_S.load_state_dict(torch.load('modeling/DeepWB/models/net_s.pth'))
     deepWB_T.eval().to(device)
     deepWB_S.eval().to(device)
 

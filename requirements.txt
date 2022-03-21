@@ -2,7 +2,7 @@ ExifRead==2.3.2
 kornia==0.5.11
 numpy==1.19.2
 matplotlib==3.3.4
-opencv-python
+opencv-python==4.5.1.48
 tqdm==4.38.0
 seaborn==0.11.0
 glog==0.3.1

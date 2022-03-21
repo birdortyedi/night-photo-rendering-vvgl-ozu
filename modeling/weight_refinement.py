@@ -52,7 +52,7 @@ def imread(file, gray=False):
 
 def process_image(reference, target, confidence=None, tensor=False):
     if confidence is None:
-        confidence = imread(os.path.join('bilateral_solver', 'confidence.png'), gray=True)
+        confidence = imread(os.path.join('modeling', 'bilateral_solver', 'confidence.png'), gray=True)
 
     if tensor:
         gpu = reference.is_cuda

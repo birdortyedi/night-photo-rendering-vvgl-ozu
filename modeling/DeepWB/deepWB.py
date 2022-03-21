@@ -12,10 +12,10 @@ import logging
 import os
 import torch
 from PIL import Image
-from .utilities import utils as utls
-from .utilities.deepWB import deep_wb
-from .arch import splitNetworks as splitter
-from .arch import deep_wb_single_task
+from modeling.DeepWB.utilities import utils as utls
+from modeling.DeepWB.utilities.deepWB import deep_wb
+from modeling.DeepWB.arch import splitNetworks as splitter
+from modeling.DeepWB.arch import deep_wb_single_task
 
 
 def get_args():

@@ -9,7 +9,7 @@ __credits__ = ["Mahmoud Afifi"]
 
 import copy
 
-from arch import deep_wb_single_task
+from modeling.DeepWB.arch import deep_wb_single_task
 
 
 def splitNetworks(net):
