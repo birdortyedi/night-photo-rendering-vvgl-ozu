@@ -32,9 +32,10 @@ if __name__ == '__main__':
     wb_model_path = os.path.join("weights", wb_model_name + ".pth")
     wb_network = mixed_wb.build_model(wb_model_path=wb_model_path, wb_settings=wb_settings, device=device)
 
-    for img_name in os.listdir(base_dir):
-        if ".png" not in img_name: continue
-        log.info("Processing image {}".format(img_name))
+    img_names = os.listdir(base_dir)
+    img_names = [img_name for img_name in img_names if ".png" in img_name]
+    for i, img_name in enumerate(img_names):
+        log.info("({:.2f}%) Processing {} of {} images, image name: {}".format(round(100 * (i+1) / len(img_names), 2), i+1, len(img_names), img_name))
 
         path = os.path.join(base_dir, img_name)
         assert os.path.exists(path)
@@ -54,5 +55,4 @@ if __name__ == '__main__':
             denoiser_network=denoiser
         )
         out_path = os.path.join("/" + base_dir, img_name.replace("png", "jpg"))
-        print(out_path)
         io.write_processed_as_jpg(out, out_path)
