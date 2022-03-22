@@ -24,7 +24,7 @@ def process(raw_image, metadata, wb_network, denoiser_network):
     out = ops.resize_using_pil(out, metadata["exp_width"] * 5 // 4, metadata["exp_height"] * 5 // 4)
     out = out[:, :, ::-1]
     out = ops.infer_denoise(out, denoiser_network, metadata["window_size"], device=metadata["device"])
-    out = ops.fix_orientation(out, metadata['orientation'])
     out = ops.resize_using_pil(out, metadata["exp_width"], metadata["exp_height"])
+    out = ops.fix_orientation(out, metadata['orientation'])
     out = ops.unsharp_masking(out)
     return out
